@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- mysql驱动的位置 -->
+    <classPathEntry location="D:\maven\repository\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar" />
+    <context id="Tables" targetRuntime="MyBatis3">
+        <!-- 注释 -->
+        <commentGenerator>
+            <!-- 是否生成注释代时间戳 -->
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 此处为 true 时，生成的 Model 包含对应表字段注释 -->
+            <property name="addRemarkComments" value="true"/>
+            <!-- 此处为 true 时，生成的 Mapper 接口将增加 @Mapper 注解，Spring ComponentScan 时可自动识别 -->
+            <property name="addMapperAnnotation" value="true"/>
+        </commentGenerator>
+        <!-- JDBC连接 -->
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://localhost:3306/oa?characterEncoding=UTF-8"
+                userId="root"
+                password="root">
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+        <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+         NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!-- 生成实体类地址 -->
+        <javaModelGenerator targetPackage="com.pp.oa.entity" targetProject="src/main/java">
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true" />
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </javaModelGenerator>
+
+        <!-- 生成*Mapper.xml文件 -->
+        <sqlMapGenerator targetPackage="com.pp.oa.mapper"  targetProject="src/main/resources">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!--自动生成的*Mapper.java存放路径 -->
+        <javaClientGenerator targetPackage="com.pp.oa.mapper" targetProject="src/main/java" type="XMLMAPPER">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <!-- 配置表信息 -->
+        <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample
+            是否生成 example类 -->
+        <table schema="oa" tableName="department"
+               domainObjectName="Department" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+
+        <table schema="oa" tableName="menu"
+               domainObjectName="Menu" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+
+        <table schema="oa" tableName="department"
+               domainObjectName="Department" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+
+        <table schema="oa" tableName="post"
+               domainObjectName="Post" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+
+        <table schema="oa" tableName="user"
+               domainObjectName="User" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+
+        <table schema="oa" tableName="user_menu"
+               domainObjectName="UserMenu" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+
+        <table schema="oa" tableName="user_post"
+               domainObjectName="UserPost" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+    </context>
+</generatorConfiguration>
