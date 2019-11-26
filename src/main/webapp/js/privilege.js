@@ -21,9 +21,7 @@ var privilege = {
                           1、显示div
                          2、给username和uid赋值
                          2、用户的动态的显示
-                         
                             把加载树之前等待的动画显示，当树加载出来以后，把动画隐藏
-                         
                          3、加载权限树
                          4、全选复选框的功能
                          5、回显
@@ -151,7 +149,7 @@ var privilege = {
              * 加载权限树
              */
             loadPrivilegeTree: function(){
-            	$.post("/oa/usermenu/showMenus.do",{
+            	$.post("/usermenu/showMenus.do",{
 					uid:privilege.data.user.uid
 				},function(data){
                         privilege.option.privilegeTreeOption.zTree =  $("#privilegeTree").zTree(privilege.option.privilegeTreeOption.setting,data.menuitemList);
@@ -180,7 +178,7 @@ var privilege = {
             /**
              * 保存
              */
-            savePrivilege: function(){
+			savePrivilege: function(){
             	/**
             	 * 1、获取uid
             	 * 2、获取所有的被选中的mids(mids是一个字符串)
@@ -198,11 +196,12 @@ var privilege = {
 						mids = mids+checkedNodes[i].mid;
 					}
 				}
-				$.post("/oa/usermenu/save.do",{
+				$.post("/usermenu/save.do",{
 					uid:privilege.data.user.uid,
 					mids:mids
 				},function(data){
-					alert("操作成功");
+					alert(data.message)
+					$("#userTitle").css("display","none")
 				});
             },
 			/**

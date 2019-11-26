@@ -8,20 +8,15 @@ import java.util.List;
 
 public interface UserMapper {
 
-
     @Insert("insert into user " +
             "values(null,#{username},#{password},#{email},#{sex},#{departmentId})")
     int insert(User user);
-
-    int insertSelective(User user);
 
     @Select("select * from user where uid =#{uid}")
     @Results(
             @Result(column = "department_id",property = "departmentId")
     )
     User selectByPrimaryKey(Long uid);
-
-    int updateByPrimaryKeySelective(User user);
 
     @Update("update user set username=#{username},password=#{password}" +
             ",email=#{email},sex=#{sex},department_id=#{departmentId} " +

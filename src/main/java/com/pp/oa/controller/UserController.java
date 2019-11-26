@@ -21,8 +21,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/user")
-//用户信息管理
-//好累啊
 public class UserController {
     @Autowired
     private UserService userService;
@@ -113,6 +111,7 @@ public class UserController {
         return userService.findUpdateUserName(uid,username);
     }
 
+    //修改
     //updateUser
     @RequestMapping("/updateUser")
     public String updateUser(User user, @RequestParam("pids")Long[] pids) {
@@ -123,6 +122,7 @@ public class UserController {
         return "redirect:/user/page.do";
     }
 
+    //登录
     @RequestMapping("/login")
     public String login(HttpSession session,Model model, User user) {
         User existUser=userService.login(user);

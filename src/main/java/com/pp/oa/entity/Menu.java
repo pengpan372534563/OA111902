@@ -13,6 +13,26 @@ public class Menu {
 
     private String url;
 
+    private String target;
+
+    private Boolean checked;
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
+    }
+
     public Long getMid() {
         return mid;
     }
@@ -70,6 +90,8 @@ public class Menu {
                 ", isparent=" + isparent +
                 ", icon='" + icon + '\'' +
                 ", url='" + url + '\'' +
+                ", target='" + target + '\'' +
+                ", checked=" + checked +
                 '}';
     }
 }

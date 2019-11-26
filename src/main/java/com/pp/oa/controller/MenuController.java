@@ -20,13 +20,16 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
 
-    @RequestMapping("/showMenusByUid")
+    @RequestMapping(value = "/showMenusByUid",produces="application/json;charset=utf-8")
     @ResponseBody
     public Map<String,List<Menu>> showMenusByUid(HttpSession session){
         //获取session中的user
         User user = (User) session.getAttribute("user");
         //根基uid获取menu对象
         List<Menu> menuitemList =menuService.findMenuListByUid(user.getUid());
+        for (Menu menu : menuitemList) {
+            menu.setTarget("right");
+        }
         //放在map集合中
         HashMap<String ,List<Menu>> hashMap =new HashMap<String ,List<Menu>>();
         hashMap.put("menuitemList",menuitemList);

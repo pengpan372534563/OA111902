@@ -15,12 +15,8 @@ public interface DepartmentMapper {
     @Insert("insert into department values(null,#{dname},#{description})")
     int insert(Department record);
 
-    int insertSelective(Department record);
-
     @Select("select * from department where did =#{did}")
     Department selectByPrimaryKey(Long did);
-
-    int updateByPrimaryKeySelective(Department record);
 
     @Update("update department set dname=#{dname},description=#{description} where did =#{did}")
     int updateByPrimaryKey(Department record);
