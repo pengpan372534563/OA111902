@@ -38,6 +38,11 @@ public class UserTest {
 
     @Test
     public void deleteByPrimaryKey(){
+        //测试
+        //测试
+        //测试
+        //测试
+        //测试
         System.out.println(userMapper.deleteUserByUid(23L));
     }
 }
