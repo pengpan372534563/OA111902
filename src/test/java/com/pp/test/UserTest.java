@@ -23,12 +23,6 @@ public class UserTest {
         System.out.println(userList.size());
     }
 
-//    @Test
-//    public void findUserById(){
-//        User user = userMapper.selectByPrimaryKey(15l);
-//        System.out.println(user);
-//    }
-
     @Test
     public void insert(){
         User user =new User();
@@ -41,18 +35,6 @@ public class UserTest {
         System.out.println(a);
     }
 
-//    @Test
-//    public void updateByPrimaryKey(){
-//        User user =new User();
-//        user.setUid(23l);
-//        user.setUsername("棒棒");
-//        user.setPassword("78945613");
-//        user.setEmail("pengpan@163.com");
-//        user.setSex("男");
-//        user.setDepartmentId(7);
-//        int i = userMapper.updateByPrimaryKey(user);
-//        System.out.println(i);
-//    }
 
     @Test
     public void deleteByPrimaryKey(){
