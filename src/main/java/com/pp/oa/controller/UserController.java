@@ -22,6 +22,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 //用户信息管理
+//好累啊
 public class UserController {
     @Autowired
     private UserService userService;
